@@ -130,3 +130,11 @@
   .expense-item {
     height: 2rem;
   }
+
+  .btn {
+    border: 0.15rem solid var(--mainGreen) !important;
+}
+
+.expense-form .btn {
+    border: 0.15rem solid var(--mainRed) !important;
+}
