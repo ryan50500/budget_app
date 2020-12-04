@@ -83,6 +83,7 @@ submitBudgetForm(){
             this.itemList.push(expense);
             this.addExpense(expense);
             // show balance
+            this.showBalance();
         }
     }
     // add expense
@@ -111,8 +112,24 @@ submitBudgetForm(){
 
     // total expense
     totalExpense(){
-        let total = 400;
+        let total = 0;
+        if(this.itemList.length > 0){
+            // reduce method to loop through 'itemList' array
+            total = this.itemList.reduce(function(acc, curr) {
+                acc += curr.amount;
+                return acc;
+            }, 0);
+        }
+        this.expenseAmount.textContent = total;
         return total;
+    }
+    // edit expense
+    editExpense(element){
+        let id = parseInt()
+    }
+      // delete expense
+      deleteExpense(element){
+
     }
 }
 
@@ -137,7 +154,16 @@ expenseForm.addEventListener('submit', function(event){
 });
 
     // expense click
-expenseList.addEventListener('submit', function(event){});
+expenseList.addEventListener('submit', function(event){
+    if(event.target.parentElement.classList.contains('edit-icon')){
+ui.editExpense(event.target.parentElement)
+    }
+    else if(event.target.parentElement.classList.contains
+        ('delete-icon')){
+        ui.deleteExpense(event.target.parentElement)
+            }
+
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
